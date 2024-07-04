@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="DataSourceTest" project="Ex_0704_Test" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.korea.test.DataSourceTest" time="0.127">
+    <testcase name="testConnection" classname="com.korea.test.DataSourceTest" time="0.127"/>
+  </testsuite>
+</testrun>

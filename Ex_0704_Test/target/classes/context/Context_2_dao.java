@@ -8,7 +8,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 // 스프링한테 설정파일임을 알려주는 어노테이션
 @Configuration
-@ComponentScan("dependency")
+@ComponentScan("dao")
 public class Context_2_dao {
 	
 }
