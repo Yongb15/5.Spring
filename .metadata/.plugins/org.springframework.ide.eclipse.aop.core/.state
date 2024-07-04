@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="Ex_0703_AOP"/>
+<aop-project name="Ex_0627_Autowire"/>
+<aop-project name="Ex_0619_DB"/>
+<aop-project name="Ex_0628_SpringBoard"/>
+<aop-project name="Ex_0620_visit"/>
+</aop-reference-model>

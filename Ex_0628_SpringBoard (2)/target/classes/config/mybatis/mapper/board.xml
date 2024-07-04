@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="b">
+
+	<select id="board_count" resultType="int">
+		SELECT COUNT(*) FROM BOARD
+	</select>
+	
+	<select id="board_list" parameterType="java.util.HashMap" resultType="board">
+		SELECT * FROM
+		(SELECT RANK() OVER(ORDER BY REF DESC, STEP) NO, b.* from board b)
+		where NO BETWEEN #{start} and #{end}
+	</select>
+	
+	<select id="board_one" parameterType="int" resultType="board">
+		SELECT * FROM BOARD WHERE IDX =#{idx}
+	</select>
+	
+	<update id="update_readhit" parameterType="int">
+		UPDATE BOARD SET
+		READHIT = READHIT + 1
+		WHERE IDX = #{idx}
+	</update>
+	
+	<insert id="board_insert" parameterType="board">
+		insert into board values(
+			seq_board_idx.nextval,
+			#{name},
+			#{subject},
+			#{content},
+			#{pwd},
+			#{ip},
+			sysdate,
+			0,
+			seq_board_idx.currval,
+			0,
+			0,
+			0
+		)
+		
+	</insert>
+	
+	<update id="del_update" parameterType="board">
+		UPDATE BOARD SET
+		SUBJECT = #{subject},
+		NAME = #{name},
+		DEL_INFO = -1
+		WHERE IDX = #{idx}
+	</update>
+	
+	<update id="board_update_step" parameterType="board">
+		UPDATE BOARD SET
+		STEP = STEP + 1
+		WHERE ref = #{ref} and step > #{step}
+	</update>
+
+	<insert id="board_reply" parameterType="board">
+		insert into board values(
+			seq_board_idx.nextVal,
+			#{name},
+			#{subject},
+			#{content},
+			#{pwd},
+			#{ip},
+			sysdate,
+			0,
+			#{ref},
+			#{step},
+			#{depth},
+			0
+		)
+	</insert>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

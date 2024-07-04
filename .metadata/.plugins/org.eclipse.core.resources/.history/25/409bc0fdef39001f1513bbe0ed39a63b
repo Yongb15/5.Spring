@@ -1,0 +1,19 @@
+package context;
+
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+
+
+//�뒪�봽留곹븳�뀒 �꽕�젙�뙆�씪�엫�쓣 �븣�젮二쇰뒗 �뼱�끂�뀒�씠�뀡
+@Configuration
+@EnableAspectJAutoProxy
+public class Context_2_dao {
+	
+}
+
+
+
+
+
+
